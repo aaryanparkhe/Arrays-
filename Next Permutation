@@ -1,0 +1,42 @@
+#BOTH POINTER ITERARTE FROM LAST OF THE ARRAY;
+ (1) A[I] < A[I+1] (IDX1 = 1) SO WE START AND ITERATE FROM THE SECOND LAST INDEX OF THE ARRAY. 
+ (2) A[IDX2] > A[IDX1] (IDX2 = 3) THEN ITERATE J FROM THE LAST OF THE ARRAY AND GET FIRST GREATER ELEMENT .
+ (3) SWAP(A[IDX1] , A[IDX2]);
+ (4) REVERSE(IDX I+1 ---> LENGTH()-1)
+ 
+
+class Solution {
+    public void nextPermutation(int[] nums) {
+        if(nums == null || nums.length <= 1)
+            return;
+        int i=nums.length - 2;
+        while(i>=0 && nums[i]>=nums[i+1]) i--;
+        if(i >= 0){
+            int j = nums.length - 1 ;
+            while(nums[j]<= nums[i]) j--;
+            swap(nums,i,j);
+        }
+        reverse(nums,i+1,nums.length-1);
+        
+    }
+    public void swap(int[] nums,int i ,int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+    public void reverse(int[] nums,int i,int j){
+        while(i<j) swap(nums,i++,j--);
+    }
+}
+
+TIME COMPLEXITY :- O(N)
+SPACE COMPLEXITY :- O(1)
+
+
+
+
+INTITUTION BEHIND THIS CONCEPT OF NEXT PERMUTATION IS THAT WE WANT THE NEXT GREATER PREFIX :-
+SUPPOSE WE HAVE :- 1 3 5 4 2 
+IN HERE WE HAVE PREFIX IS :- (1 3) BECAUSE IT IS NON INCREASING ORDER . THE INCREASING ORDER IS :-( 2 4 5 )
+AFTER SOLVING THE PROBLEM WE GET OUPUT : - 1 4 2 3 5 
+IN THIS THE PREFIX IS :-  (1,4) SO OUR OUTPUT IS :- 1 4 2 3 5.
