@@ -62,6 +62,32 @@
 
 
 
+/////////////////////////////////////////////////////////////////////////////////////////
+
+#geegksForgeeks
+
+
+
+
+
+class Solution {
+    int getPairsCount(int[] arr, int n, int k) {
+        // code here
+        // HashMap<Integer,Integer> hash = new HashMap<>();
+        // int ans = 0;
+        // for(int i : arr){
+        //     if(hash.containsKey(k-i))
+        //         ans += hash.get(k-i);
+        //     hash.put(i,hash.getOrDefault(i,0)+1);
+        // }
+        // return ans;
+     }
+}
+
+
+
+class Solution {
+    int getPairsCount(int[] arr, int n, int k) {
  Arrays.sort(arr);
         int i = 0;
         int j = n-1;
